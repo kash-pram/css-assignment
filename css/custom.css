@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 80%;
+    width: 98%;
+    color: #4d4d4d;
+    overflow: auto;
+}
+
+header {
+    text-align: center;
+    margin: 50px;
+}
+
+.pointerArrow {
+    cursor: pointer;
+}
+
+.specialText {
+    vertical-align: bottom;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+input[type="radio"] {
+    visibility: hidden;
+    /*position: relative;
+    left: 39px;*/
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: 0px;
+    outline: 0px;
+}
+
+label { 
+    display: inline-block;
+    background-color: #bfbfbf;
+    padding: 10px;
+}
+
+label:hover {
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + label{
+    background-color: #FFF;
+    cursor: default;
+}
+
+input[type="radio"]:checked ~ .content {
+    display: inline-block;
+    float: left;
+    clear: both;
+}

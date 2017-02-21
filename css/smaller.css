@@ -1,0 +1,14 @@
+.specialText::after {
+    content: "ACCORDIAN";
+}
+
+.boxFlex {
+    display: flex;
+    margin: -7px 0px;
+}
+
+.content {
+    display: none;
+    float: left;
+    padding: 0px 5%;
+}
