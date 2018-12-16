@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Precheck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .loadingspinner {
+        pointer-events: none;
+        width: 2.5em;
+        height: 2.5em;
+        border: 0.4em solid transparent;
+        border-color: #eee;
+        border-top-color: #3E67EC;
+        border-radius: 50%;
+        -webkit-animation: loadingspin 1s linear infinite;
+                animation: loadingspin 1s linear infinite;
+        }
+
+        @-webkit-keyframes loadingspin {
+        100% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+        }
+
+        @keyframes loadingspin {
+        100% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+        }
+        body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    </style>
+    <script type="text/javascript">
+        var DOM_ready = DOM_ready;
+
+        function DOM_ready () {
+            
+        }
+      
+        document.addEventListener("DOMContentLoaded", DOM_ready);
+    </script>
+</head>
+<body>
+    <div class='loadingspinner'></div>
+    <!-- <script type="text/javascript" src="main.js"></script> -->
+    <script type = "text/javascript">
+        // document.write("Hello World")
+    </script>
+</body>
+</html>
