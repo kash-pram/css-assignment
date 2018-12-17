@@ -12,7 +12,7 @@
         height: 2.5em;
         border: 0.4em solid transparent;
         border-color: #eee;
-        border-top-color: #3E67EC;
+        border-top-color:#FF3333;
         border-radius: 50%;
         -webkit-animation: loadingspin 1s linear infinite;
                 animation: loadingspin 1s linear infinite;
@@ -44,7 +44,11 @@
         var DOM_ready = DOM_ready;
 
         function DOM_ready () {
-            
+            console.log("DOM READY");
+            setTimeout(() => {
+                console.log("TIME READY");
+                
+            }, 5000);
         }
       
         document.addEventListener("DOMContentLoaded", DOM_ready);
@@ -52,9 +56,15 @@
 </head>
 <body>
     <div class='loadingspinner'></div>
-    <!-- <script type="text/javascript" src="main.js"></script> -->
+    <script type="text/javascript" src="main.js"></script>
     <script type = "text/javascript">
         // document.write("Hello World")
+        setTimeout(() => {
+            console.log("TIME HTML END");
+            
+        }, 5000);
+        console.log("HTML END");
     </script>
+    <script type="text/javascript" src="./global_loading.js"></script>
 </body>
 </html>

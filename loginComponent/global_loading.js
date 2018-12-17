@@ -4,4 +4,8 @@
 //                         <div class='bounce3'></div>\
 //                     </div>";
 
-var gb_loadingHTML = "<div class='loadingspinner'></div>";
+// var gb_loadingHTML = "<div class='loadingspinner'></div>";
+console.log("POST JS");
+setTimeout(() => {
+    console.log("TIME POST");
+}, 5000);

@@ -1,9 +1,12 @@
 // FETCH LOADING
-// taken care by indexedDB.html
+// taken care by index.html
 
-
+console.log("PRE JS");
+setTimeout(() => {
+    console.log("TIME PRE");
+}, 5000);
 // SHOW LOADING
-// taken care by indexedDB.html
+// taken care by index.html
 
 
 // CHECK IF LOGGED IN
