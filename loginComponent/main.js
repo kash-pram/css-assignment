@@ -1,10 +1,7 @@
 // FETCH LOADING
 // taken care by index.html
 
-console.log("PRE JS");
-setTimeout(() => {
-    console.log("TIME PRE");
-}, 5000);
+
 // SHOW LOADING
 // taken care by index.html
 
@@ -26,3 +23,19 @@ setTimeout(() => {
 // FETCH & BIND DEFAULT COMPONENT
 // FETCH & BIND DEFAULT COMPONENT's DATA
 
+
+
+// console.log("PRE JS");
+// setTimeout(() => {
+//     console.log("TIME PRE");
+// }, 5000);
+
+
+// TO DO : LOGGER SERVICE (ONLY FOR DEVELOPMENT)
+
+// TO DO - AFTER DEVELOPMENT : REMOVE THIS FN
+(function testSetLogin () {
+    console.log("SETTING LOGIN INFORMATION");
+    var tempObj = {isTokenValid:true};
+    localStorage.setItem("myne", JSON.stringify(tempObj))
+})();

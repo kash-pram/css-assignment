@@ -42,16 +42,30 @@
     </style>
     <script type="text/javascript">
         var DOM_ready = DOM_ready;
+        var checkLogin = checkLogin;
 
-        function DOM_ready () {
-            console.log("DOM READY");
-            setTimeout(() => {
-                console.log("TIME READY");
+        function checkLogin () {
+            var sessionObj = localStorage.getItem("myne");
+            console.log("CHECKING LOGIN INFORMATION");
+            
+            sessionObj = sessionObj ? JSON.parse(sessionObj) : undefined;
+            if ( sessionObj && sessionObj.isTokenValid ) {
+                console.log("VALID LOGIN ALREADY");
                 
-            }, 5000);
-        }
+                // REDIRECT TO DASHBOARD
+                console.log("REDIRECT TO DASHBOARD");
+                
+            } else {
+                // REDIRECT TO LOGIN / SIGNUP
+                console.log("SHOW LOGIN");
+            }
+        } // FN CHECK-LOGIN
+
+        // function DOM_ready () {
+        //     checkLogin();
+        // } // FN DOM_READY
       
-        document.addEventListener("DOMContentLoaded", DOM_ready);
+        document.addEventListener("DOMContentLoaded", checkLogin);
     </script>
 </head>
 <body>
@@ -59,12 +73,11 @@
     <script type="text/javascript" src="main.js"></script>
     <script type = "text/javascript">
         // document.write("Hello World")
-        setTimeout(() => {
-            console.log("TIME HTML END");
-            
-        }, 5000);
-        console.log("HTML END");
+        // setTimeout(() => {
+        //     console.log("TIME HTML END");
+        // }, 5000);
+        // console.log("HTML END");
     </script>
-    <script type="text/javascript" src="./global_loading.js"></script>
+    <!-- <script type="text/javascript" src="./global_loading.js"></script> -->
 </body>
 </html>
