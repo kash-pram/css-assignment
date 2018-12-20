@@ -49,20 +49,16 @@
         function checkLogin () {
             var sessionObj = localStorage.getItem(gb_cooKey);
             var gb_divContent = document.getElementById('divContent');
-
-            console.log('CHECKING LOGIN INFORMATION');
-            
+console.log('CHECKING LOGIN INFORMATION');
             sessionObj = sessionObj ? JSON.parse(sessionObj) : undefined;
             if ( sessionObj && sessionObj.isTokenValid ) {
-                console.log('VALID LOGIN PRESENT');
-                
+console.log('VALID LOGIN PRESENT');
                 // REDIRECT TO DASHBOARD
-                console.log('REDIRECT TO DASHBOARD');
-                
+console.log('REDIRECT TO DASHBOARD');                
             } else {
                 // REDIRECT TO LOGIN / SIGNUP
                 fetchThroughXHR(gb_loginPageURL, gb_divContent);
-                console.log('SHOW LOGIN');
+console.log('SHOW LOGIN');
             }
         } // FN CHECK-LOGIN
 
@@ -70,9 +66,20 @@
         //     checkLogin();
         // } // FN DOM_READY
       
-        function hideLoading () {
+        function toggleLoading (displayOption) {
             var gb_divLoading = document.getElementById('divLoading');
-            gb_divLoading.style.display = 'none'; 
+
+            // if (gb_divLoading.style.display === 'none') {
+            //     gb_divLoading.style.display = 'block';
+            // } else {
+            //     gb_divLoading.style.display = 'none';
+            // }
+
+            if ( displayOption === 'hide' ){
+                gb_divLoading.style.display = 'none';
+            } else {
+                gb_divLoading.style.display = 'block';
+            }
         }
 
         function fetchThroughXHR (pageURL, content_div) {
@@ -81,12 +88,10 @@
            xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
                    content_div.innerHTML = xmlHttp.responseText;
-                //    alert(new Date().getTime() - start);
-                    hideLoading();
+                   toggleLoading('hide');
                 }
             };
-            // start = new Date().getTime();
-            xmlHttp.open("GET", pageURL, true); // true for asynchronous
+            xmlHttp.open("GET", pageURL, true);
             xmlHttp.send(null);
         }
 
@@ -96,12 +101,12 @@
 <body>
     <div id='divLoading'>
         <script type = 'text/javascript'>
-            console.log('SHOWING LOADING');
+console.log('SHOWING LOADING');
         </script>
     </div>
     <div id='divContent'></div>
     <!-- <script type='text/javascript' src='main.js'></script> -->
-    <!-- <script type='text/javascript' src='./scripts/setCookie.js'></script> -->
+    <script type='text/javascript' src='./scripts/setCookie.js'></script>
     <script type='text/javascript' src='./scripts/clearCookie.js'></script>
     <script type = 'text/javascript'>
         // document.write('Hello World')
