@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Precheck</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        .loadingspinner {
+        #divLoading {
         pointer-events: none;
         width: 2.5em;
         height: 2.5em;
@@ -40,24 +40,29 @@
         align-items: center;
         }
     </style>
-    <script type="text/javascript">
+    <script type='text/javascript'>
         var DOM_ready = DOM_ready;
         var checkLogin = checkLogin;
+        var gb_cooKey = 'myne';
+        var gb_loginPageURL  = './views/login.html';
 
         function checkLogin () {
-            var sessionObj = localStorage.getItem("myne");
-            console.log("CHECKING LOGIN INFORMATION");
+            var sessionObj = localStorage.getItem(gb_cooKey);
+            var gb_divContent = document.getElementById('divContent');
+
+            console.log('CHECKING LOGIN INFORMATION');
             
             sessionObj = sessionObj ? JSON.parse(sessionObj) : undefined;
             if ( sessionObj && sessionObj.isTokenValid ) {
-                console.log("VALID LOGIN ALREADY");
+                console.log('VALID LOGIN PRESENT');
                 
                 // REDIRECT TO DASHBOARD
-                console.log("REDIRECT TO DASHBOARD");
+                console.log('REDIRECT TO DASHBOARD');
                 
             } else {
                 // REDIRECT TO LOGIN / SIGNUP
-                console.log("SHOW LOGIN");
+                fetchThroughXHR(gb_loginPageURL, gb_divContent);
+                console.log('SHOW LOGIN');
             }
         } // FN CHECK-LOGIN
 
@@ -65,19 +70,46 @@
         //     checkLogin();
         // } // FN DOM_READY
       
-        document.addEventListener("DOMContentLoaded", checkLogin);
+        function hideLoading () {
+            var gb_divLoading = document.getElementById('divLoading');
+            gb_divLoading.style.display = 'none'; 
+        }
+
+        function fetchThroughXHR (pageURL, content_div) {
+           var xmlHttp = new XMLHttpRequest();
+
+           xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                   content_div.innerHTML = xmlHttp.responseText;
+                //    alert(new Date().getTime() - start);
+                    hideLoading();
+                }
+            };
+            // start = new Date().getTime();
+            xmlHttp.open("GET", pageURL, true); // true for asynchronous
+            xmlHttp.send(null);
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLogin);
     </script>
 </head>
 <body>
-    <div class='loadingspinner'></div>
-    <script type="text/javascript" src="main.js"></script>
-    <script type = "text/javascript">
-        // document.write("Hello World")
+    <div id='divLoading'>
+        <script type = 'text/javascript'>
+            console.log('SHOWING LOADING');
+        </script>
+    </div>
+    <div id='divContent'></div>
+    <!-- <script type='text/javascript' src='main.js'></script> -->
+    <!-- <script type='text/javascript' src='./scripts/setCookie.js'></script> -->
+    <script type='text/javascript' src='./scripts/clearCookie.js'></script>
+    <script type = 'text/javascript'>
+        // document.write('Hello World')
         // setTimeout(() => {
-        //     console.log("TIME HTML END");
+        //     console.log('TIME HTML END');
         // }, 5000);
-        // console.log("HTML END");
+        // console.log('HTML END');
     </script>
-    <!-- <script type="text/javascript" src="./global_loading.js"></script> -->
+    <!-- <script type='text/javascript' src='./global_loading.js'></script> -->
 </body>
 </html>

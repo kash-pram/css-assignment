@@ -32,10 +32,3 @@
 
 
 // TO DO : LOGGER SERVICE (ONLY FOR DEVELOPMENT)
-
-// TO DO - AFTER DEVELOPMENT : REMOVE THIS FN
-(function testSetLogin () {
-    console.log("SETTING LOGIN INFORMATION");
-    var tempObj = {isTokenValid:true};
-    localStorage.setItem("myne", JSON.stringify(tempObj))
-})();
